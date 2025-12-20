@@ -6,95 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Greeting Card</title>
     <link rel="stylesheet" href="greeting-card-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script defer src="greeting-card-script.js"></script>
 </head>
 
 <body>
     <main>
-        <header class="header-congrate">
-            <h1 class="congratulations">Congratulations on your beautiful wedding!</h1>
-        </header>
-        <section class="greeting-card">
-            <p class="greeting-message">
-                May your marriage be filled with joy, laughter, and endless love. Here's to a wonderful journey
-                ahead as
-                you build your new lives together.
-            </p>
-            <hr>
-            <p class="closing-remarks">
-                With all our love,<br>
-                YD & Team
-            </p>
-        </section>
-        <section class="buttons-section">
-            <button class="card-btn" data-modal="send">Send Card</button>
-            <button class="card-btn" data-modal="share">Share on Social Media</button>
-            <button class="card-btn" data-modal="download">Download Card</button>
-        </section>
+        <!-- CARD CONTAINER -->
+        <section class="card-container hov-active ">
 
+
+            <header class="header-congrate">
+                <h1 class="congratulations">
+                    Congratulations on your beautiful wedding!
+                </h1>
+            </header>
+
+            <section class="greeting-card">
+                <p class="greeting-message">
+                    May your marriage be filled with joy, laughter, and endless love.
+                    Here's to a wonderful journey ahead as you build your new lives together.
+                </p>
+
+                <hr>
+
+                <p class="closing-remarks">
+                    With all our love,<br>
+                    YD & Team
+                </p>
+            </section>
+
+            <!-- ACTION BUTTONS -->
+            <section class="buttons-section">
+                <button class="card-btn" data-modal="send">Send Card</button>
+                <button class="card-btn" data-modal="share">Share Card</button>
+                <button class="card-btn" data-modal="download">Download</button>
+            </section>
+
+
+            <!-- FLOATING MODAL BOX-->
+            <section class="modal-box" aria-hidden="true">
+
+                <!-- Close button INSIDE the modal box -->
+                <button class="close-modal-btn" aria-label="Close dialog">✕</button>
+
+                <!-- SEND MODAL -->
+                <div class="modal-content send-card-dialog">
+                    <h2 class="modal-title">Send Card Via</h2>
+                    <a class="modal-link" target="_blank"
+                        href="https://wa.me/?text=Congratulations on your beautiful wedding!%20https://yasser-diab.github.io/first-greeting-card/">
+                        <img src="icons/whatsapp-icon.gif" alt="WhatsApp icon">
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <a class="modal-link" target="_blank"
+                        href="https://t.me/share/url?url=https://yasser-diab.github.io/first-greeting-card&text=Congratulations on your beautiful wedding!">
+                        <img src="icons/telegram-icon.gif" alt="Telegram icon">
+                        <span>Telegram</span>
+                    </a>
+
+                    <a class="modal-link" target="_blank"
+                        href="https://www.facebook.com/dialog/send?link=https://yasser-diab.github.io/first-greeting-card">
+                        <img src="icons/messenger-icon.gif" alt="Messenger icon">
+                        <span>Messenger</span>
+                    </a>
+
+                    <button class="modal-action copy-link-btn">
+                        <img src="icons/link-icon.gif" alt="Copy link icon">
+                        <span>Copy Link</span>
+                    </button>
+                </div>
+
+                <!-- SHARE MODAL -->
+                <div class="modal-content share-card-dialog">
+                    <h2 class="modal-title">Share Card On</h2>
+
+                    <a class="modal-link" target="_blank"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://yasser-diab.github.io/first-greeting-card">
+                        <img src="icons/facebook-icon.png" alt="Facebook icon">
+                        <span>Facebook</span>
+                    </a>
+
+                    <a class="modal-link" target="_blank"
+                        href="https://twitter.com/intent/tweet?text=Congratulations%20on%20your%20beautiful%20wedding%21&url=https://yasser-diab.github.io/first-greeting-card">
+                        <img src="icons/twitter-icon.png" alt="Twitter icon">
+                        <span>Twitter (X)</span>
+                    </a>
+
+                    <a class="modal-link" target="_blank"
+                        href="https://www.linkedin.com/sharing/share-offsite/?url=https://yasser-diab.github.io/first-greeting-card">
+                        <img src="icons/linkedin-icon.gif" alt="LinkedIn icon">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <!-- DOWNLOAD MODAL -->
+                <div class="modal-content download-card-dialog">
+                    <h2 class="modal-title">Download Card As</h2>
+
+                    <button class="modal-action download-image-btn">
+                        <img src="icons/image-icon.gif" alt="Image icon">
+                        <span>Image</span>
+                    </button>
+
+                    <button class="modal-action download-pdf-btn">
+                        <img src="icons/pdf-icon.gif" alt="PDF icon">
+                        <span>PDF</span>
+                    </button>
+                </div>
+
+            </section>
+        </section>
     </main>
-    <section class="modals" aria-hidden="true">
-        <button class="close-modal-btn" aria-label="Close dialog">✕</button>
-        <div class="modal-content send-card-dialog">
-            <h2 class="modals-header">Send Card Via</h2>
-            <a class="modal-link" target="_blank"
-                href="https://wa.me/?text=Congratulations on your beautiful wedding!%20https://yasser-diab.github.io/first-greeting-card/">
-                <img src="icons/whatsapp-icon.gif" alt="whatsapp icon">
-                <span>WhatsApp</span>
-            </a>
-
-            <a class="modal-link" target="_blank"
-                href="https://t.me/share/url?url=https://yasser-diab.github.io/first-greeting-card&text=Congratulations on your beautiful wedding!">
-                <img src="icons/telegram-icon.gif" alt="telegram icon">
-                <span>Telegram</span>
-            </a>
-
-            <a class="modal-link" target="_blank"
-                href="https://www.facebook.com/dialog/send?link=https://yasser-diab.github.io/first-greeting-card">
-                <img src="icons/messenger-icon.gif" alt="messenger icon">
-                <span>Messenger</span>
-            </a>
-
-            <button class="modal-action copy-link-btn">
-                <img src="icons/link-icon.gif" alt="link icon">
-                <span>Copy Link</span>
-            </button>
-        </div>
-        <div class="modal-content share-card-dialog">
-            <h2 class="modals-header">Share Card On</h2>
-
-            <a class="modal-link" target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=https://yasser-diab.github.io/first-greeting-card">
-                <img src="icons/facebook-icon.png" alt="facebook icon">
-                <span>Facebook</span>
-            </a>
-
-            <a class="modal-link" target="_blank"
-                href="https://twitter.com/intent/tweet?text=Congratulations%20on%20your%20beautiful%20wedding%21&url=https://yasser-diab.github.io/first-greeting-card">
-                <img src="icons/twitter-icon.png" alt="twitter icon">
-                <span>Twitter (X)</span>
-            </a>
-
-            <a class="modal-link" target="_blank"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https://yasser-diab.github.io/first-greeting-card">
-                <img src="icons/linkedin-icon.gif" alt="inkedin icon">
-                <span>LinkedIn</span>
-            </a>
-        </div>
-        <div class="modal-content download-card-dialog">
-            <h2 class="modals-header">Download Card As</h2>
-
-            <button class="modal-action download-image-btn">
-                <img src="icons/image-icon.gif" alt="image icon">
-                <span>Image</span>
-            </button>
-
-            <button class="modal-action download-pdf-btn">
-                <img src="icons/pdf-icon.gif" alt="pdf icon">
-                <span>PDF</span>
-            </button>
-        </div>
-    </section>
+    <div class="modal-backdrop"></div>
     <section class="btn-click-message">
         <div class="send-btn-intract">
             <p class="btn-message">Your card has been sent successfully 💌</p>
@@ -104,6 +128,10 @@
         </div>
         <div class="download-btn-intract">
             <p class="btn-message">Your download is starting ….</p>
+        </div>
+        <div class="copy-btn-intract">
+            <p>Link Copied Successfully!</p>
+
         </div>
     </section>
 </body>
