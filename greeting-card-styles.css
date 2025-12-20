@@ -1,22 +1,24 @@
-:root {
+body {
     background: linear-gradient(to right,
             Darkblue,
             rgba(216, 175, 240, 0.822),
             black);
     font-size: 0.9rem;
-    width: 100vw;
+
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-main {
+.card-container {
+    position: relative;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(255, 244, 252);
     background-image: url(background-img.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-clip: border-box;
     padding: 1em;
     box-sizing: border-box;
     border-radius: 15px;
@@ -24,37 +26,32 @@ main {
     text-align: center;
     text-shadow: -0.25em 0.15em 0.5em black;
     width: 80%;
-    max-width: 550px;
-    margin: 3em auto 3em auto;
+    max-width: 450px;
+    margin: 3em auto;
 }
 
-main:hover {
+.card-container.hov-active:hover,
+.card-container.hov-active:focus {
     box-shadow: -8px 12px 50px 2px rgba(189, 10, 10, 0.493);
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
 
-:root:has(main:hover) {
-    background: linear-gradient(to left,
-            darkred,
-            gold,
-            darkgoldenrod);
-    font-size: 0.9rem;
-}
-
 .header-congrate {
-    background: linear-gradient(to right, rgba(190, 48, 246, 0.663), rgba(180, 33, 121, 0.6), rgba(255, 0, 0, 0.526));
-    padding: 0;
+    background: linear-gradient(to right,
+            rgba(190, 48, 246, 0.663),
+            rgba(180, 33, 121, 0.6),
+            rgba(255, 0, 0, 0.526));
+    padding: 0.6em;
     border-radius: 10px 10px 0 0;
-    text-size-adjust: auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     font-weight: bold;
     margin: auto;
 }
 
 h1 {
-    margin: 2px;
+    margin: 0.4em;
     text-align: center;
     font-size: 1.5em;
 }
@@ -67,7 +64,10 @@ hr {
 }
 
 .greeting-card {
-    background: linear-gradient(to right, rgba(190, 48, 246, 0.663), rgba(180, 33, 121, 0.6), rgba(255, 0, 0, 0.526));
+    background: linear-gradient(to right,
+            rgba(190, 48, 246, 0.663),
+            rgba(180, 33, 121, 0.6),
+            rgba(255, 0, 0, 0.526));
     padding: 0.9em;
     border-radius: 0 0 10px 10px;
     margin: 5px auto 15px auto;
@@ -76,34 +76,36 @@ hr {
 }
 
 .greeting-card p {
-    margin: 0 auto 0 auto;
     text-align: justify;
     text-align-last: center;
 }
 
 .buttons-section {
-    margin-top: 10px;
+    margin-top: 1em;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.8em;
 }
 
 .card-btn {
-    background: linear-gradient(to right, rgba(190, 48, 246, 0.663), rgba(180, 33, 121, 0.6), rgba(255, 0, 0, 0.526));
+    background: linear-gradient(to right,
+            rgba(190, 48, 246, 0.663),
+            rgba(180, 33, 121, 0.6),
+            rgba(255, 0, 0, 0.526));
     border: none;
     border-radius: 8px;
-    color: rgb(255, 244, 252);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1em;
     margin: 3px 3px;
     cursor: pointer;
-    font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -121,67 +123,95 @@ hr {
     transition: 0.35s ease-in-out;
 }
 
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
 
-.modals {
-    background: rgba(245, 245, 245, 0.214);
-    border: 1px solid black;
-    border-radius: 10px;
-    color: black;
-    padding: 1em;
-    text-align: center;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(5px);
+
     display: none;
-    text-shadow: -0.1em -0.1em 0.4em whitesmoke;
+    z-index: 1000;
 }
 
-.modals.show {
+.modal-backdrop.show {
+    display: block;
+}
+
+.modal-box {
+
+    position: absolute;
+
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 420px;
+
+    background: white;
+    border-radius: 14px;
+    padding: 2.5em 1.5em 1.5em;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+
+    display: none;
+    z-index: 1001;
+}
+
+.modal-box.show {
     display: block;
 }
 
 
-.modals-header {
-    display: block;
-    margin: 0px;
+.modal-title {
+    text-align: center;
     width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+    color: black;
 }
+
 
 .close-modal-btn {
-    padding: 0 5px;
-    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    border: none;
+    background: #fff;
+
+    color: darkred;
+    font-size: 1.2rem;
+    font-weight: bold;
+
     cursor: pointer;
-    color: rgb(214, 6, 6);
-    text-shadow: -1px 0 2px rgb(169, 73, 73);
-    box-shadow: 0 0 5px whitesmoke;
-    background: rgba(219, 126, 126, 0.389);
-    border: solid red 2px;
-    border-radius: 5px;
-    float: top right;
-    font-size: 1.3rem;
-    text-align: center;
-    margin-right: 0;
-    margin-left: auto;
-    margin-top: 0;
-    display: block;
+    border-radius: 6px;
 }
 
+
 .close-modal-btn:hover,
-:focus {
+.close-modal-btn:focus {
     background-color: aliceblue;
     transform: scale(1.1);
     box-shadow: -8px 12px 50px 2px rgba(189, 10, 10, 0.493);
 }
 
+.close-modal-btn:active {
+    transform: scale(1.2);
+    background-color: gainsboro;
+}
+
 .modal-content {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: none;
+
     gap: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-content.active {
+    display: flex;
 }
 
 .modal-link,
@@ -190,7 +220,7 @@ hr {
     color: black;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.278);
-    padding: 10px;
+    padding: 0.8em;
     border-radius: 10px;
     display: inline-block;
     border: none;
@@ -199,6 +229,7 @@ hr {
     height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 .modal-link:hover,
 .modal-action:hover,
@@ -221,28 +252,159 @@ hr {
 .modal-link img,
 .modal-action img {
     display: block;
-    margin: 0px auto 0.75em auto;
-    width: 2em;
-    height: 2em;
+    margin: 0px auto 0.75em;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
 }
 
+
 .btn-click-message {
-    background: rgba(255, 255, 255, 0.278);
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    display: none;
+    margin: 1em auto;
     width: 80%;
-    padding: 0.5em;
-    font-size: medium;
-    font-style: italic;
-    font-weight: 600;
+    max-width: 500px;
     padding: 1em;
-    text-align: center;
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.btn-click-message.show {
+    display: block;
+}
+
+.btn-click-message>div {
     display: none;
 }
 
-.btn-click-message.modals.show {
+.btn-click-message>div.active {
     display: block;
+}
+
+
+.card-container.capture-mode {
+    transform: none !important;
+    box-shadow: none !important;
+    width: 1080px;
+    height: auto;
+}
+
+.card-container.capture-mode>.buttons-section {
+    display: none;
+}
+
+
+@media (max-width: 400px) {
+
+
+    body {
+        background: linear-gradient(to right,
+                Darkblue,
+                rgba(216, 175, 240, 0.822),
+                black);
+    }
+
+    .card-container {
+        position: relative;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(255, 244, 252);
+        background-image: url(background-img.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding: 1em;
+        border-radius: 15px;
+        box-shadow: 0 0 5px 2.5px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        text-shadow: -0.1em 0.1em 0.1em black;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .card-container.hov-active:hover,
+    .card-container.hov-active:focus {
+        box-shadow: -3px 5px 10px 1px rgba(189, 10, 10, 0.493);
+        transform: scale(1.01);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    h1 {
+        font-size: 0.8em
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .greeting-card,
+    .header-congrate {
+        padding: 0.7em;
+        font-size: 0.95em;
+        width: 80%;
+    }
+
+    .buttons-section {
+        gap: 0.03em;
+    }
+
+    .card-btn {
+        max-width: 80px;
+        font-size: 0.5em;
+    }
+
+    .modal-box {
+        top: 10px;
+        width: auto;
+        padding: 2em 1em 1em;
+    }
+
+    .modal-title {
+        font-size: 0.5em;
+        padding: 0;
+        margin: 0;
+        text-shadow: 0 0.5px 3px black;
+    }
+
+    .modal-link img,
+    .modal-action img {
+        max-width: 20px;
+        max-height: 20px;
+    }
+
+
+    .modal-link,
+    .modal-action {
+        width: 25px;
+        padding: 0.8em;
+        font-size: 0.4em;
+        border-radius: 3px;
+        margin: 1em auto;
+        text-shadow: none;
+    }
+
+    .btn-click-message {
+        width: 90%;
+        font-size: 0.9em;
+    }
+
+    .card-container.capture-mode {
+        width: 1080px;
+        max-width: none;
+        position: absolute;
+        top: 0;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+
+
+    .modal-backdrop {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
 }
