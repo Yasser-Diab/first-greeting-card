@@ -1,4 +1,4 @@
-console.log("....JavaScript connected....");
+console.log("JavaScript connected ✅");
 
 
 const backdrop = document.querySelector(".modal-backdrop");
