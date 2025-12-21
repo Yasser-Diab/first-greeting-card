@@ -28,13 +28,13 @@ html {
     width: 80%;
     max-width: 450px;
     margin: 3em auto;
+    transition: all 0.35s ease-in-out;
 }
 
 .card-container.hov-active:hover,
 .card-container.hov-active:focus {
-    box-shadow: -8px 12px 50px 2px rgba(189, 10, 10, 0.493);
+    box-shadow: 0 10px 30px 10px rgba(189, 10, 10, 0.493);
     transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
 }
 
 .header-congrate {
@@ -83,8 +83,8 @@ hr {
 .buttons-section {
     margin-top: 1em;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-between;
+    align-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 0.8em;
@@ -107,20 +107,19 @@ hr {
     margin: 3px 3px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.25s ease-in-out;
 }
 
 .card-btn:hover,
 .card-btn:focus {
     transform: translate(-0.25em, -0.25em);
-    transition: 0.25s ease-in-out;
-    box-shadow: -8px 12px 50px 2px rgba(189, 10, 10, 0.493);
+    box-shadow: -8px 12px 50px 5px rgba(189, 10, 10, 0.493);
     text-decoration: underline;
 
 }
 
 .card-btn:active {
     transform: scale(1.05);
-    transition: 0.35s ease-in-out;
 }
 
 .modal-backdrop {
@@ -157,6 +156,8 @@ hr {
 
     display: none;
     z-index: 1001;
+
+    transition: all 0.25s ease-in-out;
 }
 
 .modal-box.show {
@@ -187,13 +188,15 @@ hr {
 
     cursor: pointer;
     border-radius: 6px;
+
+    transition: all 0.3s ease-in-out;
 }
 
 
 .close-modal-btn:hover,
 .close-modal-btn:focus {
     background-color: aliceblue;
-    transform: scale(1.1);
+    transform: translateY(-0.15rem);
     box-shadow: -8px 12px 50px 2px rgba(189, 10, 10, 0.493);
 }
 
@@ -228,6 +231,7 @@ hr {
     width: 100px;
     height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-in-out;
 }
 
 
@@ -235,18 +239,15 @@ hr {
 .modal-action:hover,
 .modal-link:focus,
 .modal-action:focus {
-    text-decoration: underline;
     background-color: rgba(240, 248, 255, 0.216);
     box-shadow: -2px 2px 50px 10px rgba(189, 10, 10, 0.493);
     transform: scale(1.05);
-    transition: 0.2s ease-in-out;
 }
 
 
 .modal-action:active,
 .modal-link:active {
     transform: scale(1.1);
-    transition: 0.35s ease-in-out;
 }
 
 .modal-link img,
