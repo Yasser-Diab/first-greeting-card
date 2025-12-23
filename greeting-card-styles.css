@@ -299,7 +299,7 @@ hr {
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
 
 
     body {
@@ -315,13 +315,13 @@ hr {
         color: rgb(255, 244, 252);
         background-image: url(background-img.png);
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
         padding: 1em;
         border-radius: 15px;
         box-shadow: 0 0 5px 2.5px rgba(0, 0, 0, 0.5);
         text-align: center;
         text-shadow: -0.1em 0.1em 0.1em black;
-        max-width: 250px;
+        max-width: 400px;
         margin: 0 auto;
     }
 
@@ -344,11 +344,13 @@ hr {
     .header-congrate {
         padding: 0.7em;
         font-size: 0.95em;
-        width: 80%;
+        width: 90%;
     }
 
     .buttons-section {
         gap: 0.03em;
+        justify-content: space-around;
+        align-content: space-around;
     }
 
     .card-btn {
