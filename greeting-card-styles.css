@@ -28,7 +28,7 @@ html {
     width: 80%;
     max-width: 450px;
     margin: 3em auto;
-    transition: all 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out, translate 0.3s ease-in-out;
 }
 
 .card-container.hov-active:hover,
@@ -157,7 +157,7 @@ hr {
     display: none;
     z-index: 1001;
 
-    transition: all 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out, translate 0.3s ease-in-out;
 }
 
 .modal-box.show {
@@ -333,11 +333,11 @@ hr {
     }
 
     h1 {
-        font-size: 0.8em
+        font-size: 1.6em
     }
 
     p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .greeting-card,
@@ -350,39 +350,39 @@ hr {
     .buttons-section {
         gap: 0.03em;
         justify-content: space-around;
-        align-content: space-around;
+        align-content: space-between;
     }
 
     .card-btn {
-        max-width: 80px;
-        font-size: 0.5em;
+        max-width: 100px;
+        font-size: 0.9em;
     }
 
     .modal-box {
-        top: 10px;
-        width: auto;
-        padding: 2em 1em 1em;
+        top: 2em;
+        width: 80%;
+        padding: 2em;
     }
 
     .modal-title {
-        font-size: 0.5em;
+        font-size: 1.2em;
         padding: 0;
-        margin: 0;
-        text-shadow: 0 0.5px 3px black;
+        margin: 10px auto;
+        text-shadow: none;
     }
 
     .modal-link img,
     .modal-action img {
-        max-width: 20px;
-        max-height: 20px;
+        max-width: 30px;
+        max-height: 30px;
     }
 
 
     .modal-link,
     .modal-action {
-        width: 25px;
-        padding: 0.8em;
-        font-size: 0.4em;
+        max-width: fit-content;
+        padding: 1em;
+        font-size: 0.9em;
         border-radius: 3px;
         margin: 1em auto;
         text-shadow: none;
